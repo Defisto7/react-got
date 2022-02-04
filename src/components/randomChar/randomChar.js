@@ -1,14 +1,35 @@
 import React, {Component} from 'react';
 import './randomChar.css';
+import gotService from '../../services/gotService';
 
 export default class RandomChar extends Component {
 
+    constructor() {
+        super();
+        this.updateChar();
+    }
+
+    gotService = new gotService();
     state = {
         name: null,
         gender: null,
         born: null,
         died: null,
         culture: null
+    }
+
+    updateChar() {
+        const id = 130;
+        this.gotService.getCharacter(id)
+            .then((char) => {
+                this.setState({
+                    name: char.name,
+                    gender: char.gender,
+                    born: char.born,
+                    died: char.died,
+                    culture: char.culture
+                })
+            });
     }
 
     render() {

@@ -19,4 +19,16 @@ export default class GotService {
     getCharacter(id) {
         return this.getResource(`/characters/${id}`);
     }
+    getAllHouses(id) {
+        return this.getResource(`/houses/`);
+    }
+    getHouses(id) {
+        return this.getResource(`/houses/${id}`);
+    }
+    getAllBooks(id) {
+        return this.getResource(`/books/`);
+    }
+    getBooks(id) {
+        return this.getResource(`/books/${id}`);
+    }
 }
